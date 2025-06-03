@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botão Interativo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #colorButton {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #colorButton:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="colorButton">Clique para mudar de cor</button>
+
+  <script>
+    const button = document.getElementById('colorButton');
+
+    const colors = ['#007bff', '#28a745', '#dc3545', '#ffc107', '#6610f2', '#17a2b8'];
+    let index = 0;
+
+    button.addEventListener('click', () => {
+      index = (index + 1) % colors.length;
+      button.style.backgroundColor = colors[index];
+    });
+  </script>
+
+</body>
+</html>
