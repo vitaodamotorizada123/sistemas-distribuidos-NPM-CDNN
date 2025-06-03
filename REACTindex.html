@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Botão com React</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    function ColorButton() {
+      const colors = ['#007bff', '#28a745', '#dc3545', '#ffc107', '#6610f2', '#17a2b8'];
+      const [index, setIndex] = useState(0);
+
+      const handleClick = () => {
+        setIndex((prev) => (prev + 1) % colors.length);
+      };
+
+      return (
+        <button
+          style={{ backgroundColor: colors[index] }}
+          onClick={handleClick}
+        >
+          Clique para mudar de cor
+        </button>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<ColorButton />);
+  </script>
+</body>
+</html>
